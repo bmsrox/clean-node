@@ -1,9 +1,9 @@
 {
   "name": "clean-node-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "NodeJS Rest API using TDD, Clean Architeture and Typescript",
   "author": "Bruno Marinho <bmsrox@gmail.com>",
-  "license": "MIT",
+  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^12.12.31",
@@ -19,16 +19,28 @@
     "husky": "^4.2.3",
     "jest": "^25.1.0",
     "lint-staged": "^10.0.9",
+    "rimraf": "^3.0.2",
+    "sucrase": "^3.13.0",
     "supertest": "^4.0.2",
     "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
   },
   "scripts": {
+    "start": "node dist/application/server.js",
+    "build": "rimraf dist && tsc",
+    "dev": "sucrase-node src/application/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:vebose": "jest --passWithNoTests --runInBand",
     "test:unit": "yarn test -- --watch -c jest-unit-config.js",
     "test:integration": "yarn test -- --watch -c jest-integration-config.js",
     "test:staged": "yarn test -- --findRelatedTests",
     "test:ci": "yarn test -- --coverage"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.3",
+    "express": "^4.17.1"
   }
 }
