@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "node dist/application/server.js",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
     "dev": "sucrase-node src/application/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:vebose": "jest --passWithNoTests --runInBand",
@@ -41,6 +41,10 @@
   },
   "dependencies": {
     "@types/express": "^4.17.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@": "dist"
   }
 }
